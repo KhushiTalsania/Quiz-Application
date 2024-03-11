@@ -1,0 +1,23 @@
+.answer{
+    font-weight: bold;
+}
+html {
+    user-select: none;
+}
+.otp-letter-input{
+    max-width: 100%;
+    height: 90px;
+    border: 1px solid #198754;
+    border-radius:10px;
+    color: #198754;
+    font-size: 60px;
+    text-align: center;
+    font-weight: bold;
+}
+/* .btn{
+    height: 50px;
+} */
+/* .btn-primary:hover{
+    background-color: #21bf73;
+    border: 1px solid #21bf73;
+} */

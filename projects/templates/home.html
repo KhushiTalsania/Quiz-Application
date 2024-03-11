@@ -1,0 +1,27 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    <h1> Department List </h1>
+    <table class='table table-striped mt-5'>
+        <thead class="table-dark">
+            <tr>
+                <th>Department ID</th>
+                <th>Department Name</th>
+                <th></th>
+            </tr>
+        </thead>
+    <tbody>
+        {% for department in departments %}
+        <tr> 
+            <td>{{ department.id }}</td>
+            <td>{{ department.name }}</td>
+            <td><a href="{% url 'department' department.id %}"><button>View</button></a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+
+    <a href="{% url 'create-department' %}"><button class="btn btn-success">Create Department</button></a>
+    
+{% endblock content %}

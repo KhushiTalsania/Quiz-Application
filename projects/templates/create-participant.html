@@ -1,0 +1,32 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="col d-flex justify-content-center">
+    <div class="card mb-3" style="max-width: 40rem;">
+        <div class="card-body">
+            <form action="" method="POST" class="row g-3" name="form" autocomplete="off">
+                {% csrf_token %}
+                {% for field in form %}
+                    <div class="col-md-12">
+                        <label for="validationServer02" class="form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% for error in field.errors %}
+                            <p class="text-danger">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+        
+            </form>
+        </div>
+      </div>
+</div>
+<script>
+    $(window).load(function() {
+        $('form').get(0).reset(); //clear form data on page load
+    });
+</script>
+{% endblock content %}

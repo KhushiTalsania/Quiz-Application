@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+
+{% block content %}
+
+    <div class="container my-4">
+        <div class="row my-sm-2">
+            <div class="col-md-8 text-right">
+                <a href="{% url 'home' %}" class="btn btn-secondary btn-md rounded-circle mx-sm-2">&#10094;</a>
+            </div>
+            <div class="col-md-4 text-right">
+                <a href="{% url 'create-exam' department.id %}" class="btn btn-success btn-md rounded-pill mx-sm-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                      </svg>
+                    Create Exam
+                </a>
+                <a href="{% url 'create-question' department.id %}" class="btn btn-success btn-md rounded-pill mx-sm-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"/>
+                      </svg>
+                    Create Question
+                </a>
+            </div>
+        </div>
+        <dl class="row">
+            <dt class="col-sm-3">Department ID: </dt>
+            <dd class="col-sm-9">{{ department.id }}</dd>
+            <dt class="col-sm-3">Department Name: </dt>
+            <dd class="col-sm-9">{{ department.name }}</dd>
+        </dl>  
+        <h3> Exam List </h3>
+        <table class='table table-striped'>
+            <thead class="table-dark">
+                <tr>
+                    <th>Exam ID</th>
+                    <th>Department Name</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for exam in exams %}
+                <tr> 
+                    <td>{{ exam.id }}</td>
+                    <td>{{ exam.name }}</td>
+                    <td><a href="{% url 'exam' department.id exam.id %}"><button>View</button></a></td>
+                    <td><a href="{% url 'update-exam' department.id exam.id %}"><button>Edit</button></a></td>
+                    <td><a href="{% url 'delete-exam' department.id exam.id %}"><button>Delete</button></a></td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5">No Exams</td> 
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock content %}

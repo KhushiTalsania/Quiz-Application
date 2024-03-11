@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="col d-flex justify-content-center">
+    <div class="card mb-3" style="max-width: 40rem;">
+        <div class="card-body">
+            <form action="" method="POST" class="row g-3">
+                {% csrf_token %}
+                <p>Are you sure you want to delete exam "{{object}}" ? </p>
+                <div class="col-12">
+                    <a href="{% url 'department' dept_id %}">
+                        Go Back
+                    </a>
+                    <button class="btn btn-primary" type="submit">Confirm</button>
+                </div>
+        
+            </form>
+        </div>
+      </div>
+</div>
+
+{% endblock content %}

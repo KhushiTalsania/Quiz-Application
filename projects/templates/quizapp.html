@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="justify-content-center align-items-center">
+    <h1>Welcome to Quiz App</h1>
+
+    <div class="container">
+        <a href="{% url 'loginUser' %}">
+            <button class="btn btn-info">Login for Recruiter</button>
+        </a>
+        <a href="{% url 'create-participant' %}">
+            <button class="btn btn-info">Login for Participant</button>
+        </a>
+    </div>
+</div>
+
+{% endblock content %}
